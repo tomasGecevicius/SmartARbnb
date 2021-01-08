@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Assistant auth demo</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+          <link rel="stylesheet" href="flickity.css">
+  </head>
+  <body>
+
+    <main id="loginPart">
+      <div id="ask-connect">
+        <p>
+          This requires a <a href="https://www.home-assistant.io" target="_blank">Home Assistant</a> installation (0.77 or later).
+        </p>
+
+        <form id="connect">
+          <input id="host" value="https://192.168.100.127:8123" />
+          <button>
+            Connect to Home Assistant
+          </button>
+        </form>
+      </div>
+      <table>
+        <tbody>
+
+        </tbody>
+      </table>
+    </main>
+
+
+    <div style="z-index:10; position:fixed; left:0; top:0;">
+    <button onclick="showAutomationBox()"> <img src="img/automationIcon.png" style="height:30px"> Automation </button>
+    </div>
+
+    <div class="mainOnboarding" id="mainOnboarding">
+      <img id="onboardingLogo" src="img/smartARbnb logo.png">
+      <div class="onboardingContent" id="onboardingContent">
+      <div class="onboardingImage" >
+        <img id="onboardingImage" src="img/onboarding1.png">
+      </div>
+      <div class="onboardingText" >
+        <h1 id="onboardingHeader">Experience simple smart home controls </h1>
+        <h2 id="onboardingText">It’s easy. Point with your phone and control.</h2>
+      </div>
+      <button class="onboardingButton" id="onboardingButton" onclick="NextScreen()"> Start </button>
+
+      </div>
+    </div>
+
+    <div class="gallery " id="atmosphereLayer"></div>
+
+    <div class="scanningSymbol " id="scanningSymbol"> <img src="img/scanningSymbol.gif"></div>
+
+<div id="AR_container" style="display: none">
+  <div id="popUpLayer" style="display:none">
+
+
+    <div id="popup_automation" style="display:none" >
+
+      <div class="popUpBox">
+        <div class="popUpHeader">
+        <img src="img/automationIcon.png" class="popUpIcon">
+            <div class="smartBoxTextBox">
+                 <p class="smartBoxTextBoxType">Automation</p>
+            </div>
+        <img src="img/close.png" class="close" onclick="removePopUpAutomation()">
+        </div>
+
+    </div>
+
+    <div class="popUpHorizontalContainer">
+    <div class="popUpBox extra automation">
+    <img src="img/automation1.png">
+    </div>
+
+    <div class="twoButtons">
+
+    <button>
+      <img src="img/eye.png" class="eye" onclick="showAutomationInAR()">
+      </button>
+
+      <button onclick="alert('Sorry this does not work')">
+        Edit
+        </button>
+      </div>
+    </div>
+
+    <div class="popUpHorizontalContainer">
+    <div class="popUpBox extra automation">
+    <img src="img/automation1.png">
+    </div>
+
+    <div class="twoButtons">
+    <button>
+      <img src="img/eye.png" class="eye" onclick="alert('Sorry this does not work')">
+      </button>
+
+      <button onclick="alert('Sorry this does not work')">
+        Edit
+        </button>
+      </div>
+
+    </div>
+    </div>
+
+
+    <!-- Automation example -->
+    <div id="popup_automation_example"  class="automationExample">
+
+
+    <div class="popUpHorizontalContainer">
+    <div class="popUpBox extra automation">
+    <img src="img/automation1.png">
+    </div>
+    <div class="twoButtons">
+    <button onclick="hideAutomationInAR()">
+      Close
+      </button>
+      </div>
+    </div>
+    </div>
+
+
+    </div>   <!-- End of popup layer -->
+
+  <div id="smartLayer" > </div>
+  <canvas id="smartLines"></canvas>
+
+  <div class="smartIcon"><img src="img/lampIcon.png" id="s_abc" style="display:none"></div>
+  <div id="fps"> </div>
+
+    <div id="consol"> </div>
+
+  <canvas id="c" width=320  height=240></canvas>
+
+  <video id="video" autoplay="true"></video>
+</div>
+
+    <script src="https://unpkg.com/home-assistant-js-websocket@3.0.0/dist/haws.umd.js"></script>
+    <script src="client.js"></script>
+    <script src="flickity.pkgd.min.js"></script>
+    <script src="script.js"></script>
+    <script src="blobis.js"></script>
+    <script src="smartBox.js"></script>
+    <script src="onboarding.js"></script>
+    <script src="anime.min.js"></script>
+    <script src="atmosphere.js"></script>
+    <footer>
+
+    </footer>
+
+  </body>
+</html>

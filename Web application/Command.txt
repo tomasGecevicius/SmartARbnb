@@ -1,0 +1,6 @@
+http-server -S -C cert.pem
+
+openssl req -new -sha256 -key 192.168.100.107:8080.key -out 192.168.100.107:8080.csr
+
+
+https://www.npmjs.com/package/http-server
